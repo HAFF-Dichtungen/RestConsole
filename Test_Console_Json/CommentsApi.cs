@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test_Console_Json
 {
@@ -17,9 +12,9 @@ namespace Test_Console_Json
             return response.Content;
         }
 
-        public CommentsApi()
+        public CommentsApi(string url)
         {
-            List<Root> account = JsonConvert.DeserializeObject<List<Root>>(GetReleases("https://jsonplaceholder.typicode.com/comments"));
+            List<Root> account = JsonConvert.DeserializeObject<List<Root>>(GetReleases(url));
             Console.WriteLine("Comments \n");
             foreach (var item in account)
             {
@@ -40,9 +35,9 @@ namespace Test_Console_Json
             return response.Content;
         }
 
-        public getTestData()
+        public getTestData(string url)
         {
-            List<Root_> account = JsonConvert.DeserializeObject<List<Root_>>(GetReleases("http://192.168.100.61/Test/MOCK_DATA.json"));
+            List<Root_> account = JsonConvert.DeserializeObject<List<Root_>>(GetReleases(url));
             Console.WriteLine("TEST \n");
             foreach (var item in account)
             {
